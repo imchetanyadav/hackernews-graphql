@@ -8,7 +8,10 @@ function feed(parent, args, context, info) {
       }
     : {}
 
-  return context.db.query.links({ where }, info)
+    return context.db.query.links(
+        { where, skip: args.skip, first: args.first },
+        info
+    )
 }
 
 function link(root, args, context, info) {
